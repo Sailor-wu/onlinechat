@@ -45,6 +45,24 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("pwd");
 	}
 
+	public M setPhone(java.lang.String phone) {
+		set("phone", phone);
+		return (M)this;
+	}
+
+	public java.lang.String getPhone() {
+		return get("phone");
+	}
+
+	public M setEmail(java.lang.String email) {
+		set("email", email);
+		return (M)this;
+	}
+
+	public java.lang.String getEmail() {
+		return get("email");
+	}
+
 	public M setRegion(java.lang.String region) {
 		set("region", region);
 		return (M)this;

@@ -1,11 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-    <link type="text/css" rel="stylesheet" href="css/boitstrap.min.css">
+    <meta charset="utf-8"/>
+    <title>WeChat</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/icon.css"/>
+    <link rel="stylesheet" href="css/chat.css"/>
 </head>
+
 <body>
-    随便输出点什么，证明我是存在的
+<div class="container main">
+    <div class="row main-inner">
+        <!-- menu start -->
+        <div class="col-md-3" id="menu">
+            <!-- header -->
+            <div class="header clearfix">
+                <div class="avator pull-left">
+                    <img src="img/me.jpg" class="img-responsive img-circle"/>
+                </div>
+                <div class="info pull-left">
+                    <span class="nickname">Succy</span>
+                    <i class="icon chat-add-icon chat-add"></i>
+                    <ul id="dropdown-list">
+                        <li>
+                            <a href="#"><i class="droplist-icon chat-icon"></i> 发起聊天</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="droplist-icon push-icon"></i> 关闭桌面通知</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="droplist-icon voice-icon"></i> 关闭声音</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="droplist-icon feedback-icon"></i> 意见反馈</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="droplist-icon exit-icon"></i> 退出</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end of header -->
+            <!-- search -->
+            <div id="search" class="form-group has-feedback">
+                <input class="form-control" type="text" placeholder="搜索"/>
+                <!--<i class="icon-search icon-large form-control-feedback"></i>-->
+            </div>
+            <!-- end of search -->
+            <!-- nav-->
+            <ul id="nav">
+                <li class="active">
+                    <a href="#tab-cur"><i class="tab-icon tab-chat-icon active"></i></a>
+                </li>
+                <li>
+                    <a href="#tab-article"><i class="tab-icon tab-publish-icon"></i></a>
+                </li>
+                <li>
+                    <a href="#tab-linkman"><i class="tab-icon tab-linkman-icon"></i></a>
+                </li>
+            </ul>
+            <!-- end of nav -->
+            <div id="nav-content">
+                <div id="tab-cur" class="active">
+                    我是当前会话
+                </div>
+                <div id="tab-article">
+                    我是文章
+                </div>
+                <div id="tab-linkman">
+                    我是联系人
+                </div>
+            </div>
+        </div>
+        <!-- menu end -->
+        <!-- content start -->
+        <div class="col-md-9" id="content"></div>
+        <!-- content end -->
+    </div>
+</div>
 </body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/chat.js"></script>
+
 </html>

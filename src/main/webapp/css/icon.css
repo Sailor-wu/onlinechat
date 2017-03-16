@@ -1,0 +1,66 @@
+/**
+ * icon.css 图标文件
+ */
+
+@charset "utf-8";
+.icon {
+	display: inline-block;
+}
+
+.chat-add-icon {
+	width: 30px;
+	height: 30px;
+	background: url(../img/icons.png) no-repeat -434px -398px;
+}
+
+.tab-icon {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+}
+
+.tab-chat-icon.active {
+	background: url(../img/icons.png) no-repeat -185px -96px;
+}
+
+.tab-chat-icon {
+	background: url(../img/icons.png) no-repeat -151px -95px;
+}
+
+.tab-publish-icon {
+	background: url(../img/icons.png) no-repeat -376px -321px;
+}
+
+.tab-publish-icon.active {
+	background: url(../img/icons.png) no-repeat -305px -280px;
+}
+
+.tab-linkman-icon {
+	background: url(../img/icons.png) no-repeat -220px -95px;
+}
+
+.tab-linkman-icon.active {
+	background: url(../img/icons.png) no-repeat -305px -245px;
+}
+
+.droplist-icon {
+	display: inline-block;
+	vertical-align: middle;
+	width: 34px;
+	height: 34px;
+}
+.chat-icon {
+	background: url(../img/icons.png) no-repeat -238px -398px;
+}
+.exit-icon {
+	background: url(../img/icons.png) no-repeat -102px -398px;
+}
+.feedback-icon {
+	background: url(../img/icons.png) no-repeat -306px -398px;
+}
+.voice-icon {
+	background: url(../img/icons.png) no-repeat -170px -398px;
+}
+.push-icon {
+	background: url(../img/icons.png) no-repeat -68px -398px;
+}

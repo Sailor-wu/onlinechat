@@ -1,0 +1,162 @@
+@charset "utf-8";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.main {
+    max-width: 1000px;
+    border: 1px solid #000000;
+    height: 100%;
+}
+
+.main-inner {
+    height: 100%;
+}
+
+#menu {
+    height: 100%;
+    background-color: #2E3238;
+}
+
+#menu .header {
+    padding: 18px 0 18px 0;
+
+}
+
+#menu .header .avator {
+    padding-right: 10px;
+}
+
+#menu .header .avator img {
+    width: 40px;
+    height: 40px;
+}
+
+#menu .info {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+}
+
+#menu .info span.nickname {
+    display: inline-block;
+    width: 130px;
+    font-family: "microsoft yahei";
+    font-size: 18px;
+    overflow: hidden;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #FFF;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+#menu .info .chat-add {
+    cursor: pointer;
+    /*color: #EEEEEE;
+    width: 36px;
+    height: 36px;*/
+    margin-bottom: 3px;
+    line-height: 35px;
+}
+
+#search input {
+    height: 32px;
+    background-color: #26292E;
+    color: #FFFFFF;
+    border: 0;
+    line-height: 32px;
+    font-size: 12px;
+}
+
+ul#nav {
+    width: 100%;
+    display: table;
+    border-bottom: 1px solid #26292E;
+    padding: 0 0 10px 0;
+    clear: both;
+}
+
+#nav > li {
+    width: 33%;
+    height: 100%;
+    display: table-cell;
+    list-style: none;
+    float: left;
+    border-right: 1px solid #26292E;
+    text-align: center;
+}
+
+#nav > li:nth-child(3) {
+    border-right: none;
+}
+
+#nav > li > a {
+    text-decoration: none;
+    /*display: inline-block;
+    height: 100%;
+    width: 100%;*/
+}
+
+#nav-content {
+    width: 100%;
+}
+
+#nav-content > div {
+    width: 100%;
+    color: #fff;
+    display: none;
+}
+
+#nav-content > div.active {
+    display: block;
+}
+
+#dropdown-list {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    background-color: #fff;
+    display: none;
+    z-index: 999;
+    border-radius: 5px;
+    padding: 0;
+}
+
+#dropdown-list > li {
+    list-style: none;
+}
+
+#dropdown-list > li > a {
+    display: block;
+    width: 175px;
+    color: #000;
+    padding: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+#dropdown-list > li > a:hover {
+    background-color: #F5F5F5;
+}
+
+#dropdown-list.active {
+    display: block;
+}
+
+#content {
+    height: 100%;
+    background-color: #EEEEEE;
+}
