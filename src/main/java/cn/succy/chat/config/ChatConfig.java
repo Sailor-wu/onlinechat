@@ -1,5 +1,6 @@
 package cn.succy.chat.config;
 
+import cn.succy.chat.common.model._MappingKit;
 import cn.succy.chat.controller.IndexController;
 import cn.succy.chat.controller.UserController;
 import com.jfinal.config.Constants;
@@ -8,6 +9,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
@@ -39,7 +41,11 @@ public class ChatConfig extends JFinalConfig {
     public void configPlugin(Plugins plugins) {
         DruidPlugin druidPlugin = createDruidPlugin();
         ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
+        // 使用sql模板，sql语句将不写在代码中。
+        arp.setBaseSqlTemplatePath(PathKit.getRootClassPath());
+        arp.addSqlTemplate("user.sql");
 
+        _MappingKit.mapping(arp);
         plugins.add(druidPlugin);
         plugins.add(arp);
     }

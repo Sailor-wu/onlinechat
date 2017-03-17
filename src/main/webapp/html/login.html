@@ -7,11 +7,58 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-wrap">
-            <img src="img/login_bg.jpg" class="blur img-responsive">
+    <!--<div class="login-container">-->
+        <!--<div class="login-wrap">-->
+            <!--<img src="img/login_bg.jpg" class="blur img-responsive">-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--test-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>注册用户测试</h3>
+                <hr />
+                <div class="form-group">
+                    <label for="nickName">昵称</label>
+                    <input type="text" class="form-control" id="nickName" placeholder="请输入昵称">
+                </div>
+                <div class="form-group">
+                    <label for="phone">手机号</label>
+                    <input type="text" class="form-control" id="phone" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">密码</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <button type="button" id="submit"  class="btn btn-success btn-block">提交</button>
+                </div>
+            </div>
         </div>
 
     </div>
 </body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+
+    $("#submit").click(function() {
+        $.ajax({
+            type:"post",
+            url:"http://localhost:8080/user/register",
+            async:true,
+            data: {
+                "nickname":$("#nickName").val(),
+                "phone":$("#phone").val(),
+                "pwd": $("#pwd").val()
+            },
+            dataType: "text",
+            success: function(data) {
+                if(data) {
+                    alert(data);
+                }
+            }
+        });
+    })
+</script>
 </html>
