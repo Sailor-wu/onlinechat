@@ -1,5 +1,5 @@
 #sql("findUserByAcctAndPwd")
-  SELECT * FROM t_user WHERE aid = ? AND pwd = ?
+  SELECT id,aid,nickname,phone,email,region,signature,gender,is_login FROM t_user WHERE aid = ? AND pwd = ?
 #end
 
 #sql("findUserByPhone")

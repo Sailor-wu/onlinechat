@@ -2,6 +2,7 @@ package cn.succy.chat.config;
 
 import cn.succy.chat.common.model._MappingKit;
 import cn.succy.chat.controller.IndexController;
+import cn.succy.chat.controller.RobotController;
 import cn.succy.chat.controller.UserController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -30,6 +31,7 @@ public class ChatConfig extends JFinalConfig {
     public void configRoute(Routes routes) {
         routes.add("/", IndexController.class, "/html");
         routes.add("/user", UserController.class, "/html");
+        routes.add("/robot", RobotController.class);
     }
 
     @Override
@@ -44,15 +46,22 @@ public class ChatConfig extends JFinalConfig {
         // 使用sql模板，sql语句将不写在代码中。
         arp.setBaseSqlTemplatePath(PathKit.getRootClassPath());
         arp.addSqlTemplate("user.sql");
+        // 设置显示sql
+        arp.setShowSql(PropKit.getBoolean("showSql", false));
 
+        // 自动添加映射
         _MappingKit.mapping(arp);
+        // 添加redis的支持
+        //RedisPlugin redisPlugin = new RedisPlugin("chat", "127.0.0.1");
+
         plugins.add(druidPlugin);
         plugins.add(arp);
+        //plugins.add(redisPlugin);
     }
 
     @Override
     public void configInterceptor(Interceptors interceptors) {
-
+        // 全局的拦截器才用在这里配置
     }
 
     @Override
@@ -60,6 +69,9 @@ public class ChatConfig extends JFinalConfig {
 
     }
 
+    /**
+     * 构造druid连接池插件对象
+     */
     public static DruidPlugin createDruidPlugin() {
         return new DruidPlugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("pwd"));
     }
