@@ -20,3 +20,8 @@ $(".chat-add").on("click", function (e) {
     var dropdownList = $("#dropdown-list");
     dropdownList.hasClass("active") ? dropdownList.removeClass("active") : dropdownList.addClass("active");
 });
+
+// $("#exit-btn").on("click", function () {
+//
+//
+// })

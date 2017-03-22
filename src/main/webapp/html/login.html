@@ -2,63 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <!--<div class="login-container">-->
-        <!--<div class="login-wrap">-->
-            <!--<img src="img/login_bg.jpg" class="blur img-responsive">-->
-        <!--</div>-->
-
+<div class="login-container">
+    <!--<div class="login-wrap">-->
+    <!--<img src="../img/login_bg.jpg" class="blur img-responsive">-->
     <!--</div>-->
-    <!--test-->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>注册用户测试</h3>
-                <hr />
-                <div class="form-group">
-                    <label for="nickName">昵称</label>
-                    <input type="text" class="form-control" id="nickName" placeholder="请输入昵称">
-                </div>
-                <div class="form-group">
-                    <label for="phone">手机号</label>
-                    <input type="text" class="form-control" id="phone" placeholder="请输入手机号">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">密码</label>
-                    <input type="text" class="form-control" id="pwd" placeholder="请输入密码">
-                </div>
-                <div class="form-group">
-                    <button type="button" id="submit"  class="btn btn-success btn-block">提交</button>
-                </div>
+    <div class="container login-box">
+        <div class="login-content">
+            <div class="avatar">
+                <img src="../img/me.jpg" class="img-circle img-responsive"/>
+            </div>
+            <div class="error-msg text-center"><p>用户名或密码错误</p></div>
+            <div class="form-group">
+                <input type="text" id="acct" class="form-control" placeholder="请输入账号">
+            </div>
+            <div class="form-group">
+                <input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-block" id="login-btn" type="button">登录</button>
+            </div>
+            <div class="form-group reg-box">
+                <span class="text-left"><a id="forgot" href="#">忘记密码？</a></span>
+                <span class="text-right"><a id="register" href="#">注册账号</a></span>
             </div>
         </div>
-
     </div>
+</div>
 </body>
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
 <script>
+    var bgImgs = ['1.jpg', '2.jpg', '3.jpg'];
+    var index = 1;
+    setInterval(function () {
+        if (index > 2) {
+            index = 0;
+        }
+        var bgImg = bgImgs[index++];
+        var background = "url(../img/" + bgImg + ")";
+        $("body").css({"background-image": background});
+    }, 3000);
 
-    $("#submit").click(function() {
-        $.ajax({
-            type:"post",
-            url:"http://localhost:9090/user/register",
-            async:true,
-            data: {
-                "nickname":$("#nickName").val(),
-                "phone":$("#phone").val(),
-                "pwd": $("#pwd").val()
-            },
-            dataType: "text",
-            success: function(data) {
-                if(data) {
-                    alert(data);
+    $("#login-btn").on("click", function () {
+        var acct = $("#acct").val().trim();
+        var pwd = $("#pwd").val().trim();
+
+        if (acct == "") {
+            alert("账号不为空");
+            return false;
+        } else if (pwd == "") {
+            alert("密码不能为空");
+            return false;
+        } else {
+            $.post("http://localhost:9090/user/login", {"acct": acct, "pwd": pwd}, function (result) {
+                console.log(result)
+                if (result.code == 200) {
+                    window.location = "http://localhost:9090";
+                } else {
+                    $(".error-msg").show();
                 }
-            }
-        });
+            }, "json");
+        }
     })
 </script>
 </html>

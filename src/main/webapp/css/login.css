@@ -5,11 +5,15 @@ html, body {
 }
 
 body {
-    background: url(../img/login_bg.jpg) no-repeat center center fixed;
+    background: url(../img/1.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    transition: background-image 1.5s linear 0s;
+    -moz-transition: background-image 1.5s linear 0s;
+    -webkit-transition: background-image 1.5s linear 0s;
+    -o-transition: background-image 1.5s linear 0s;
 }
 
 .login-container {
@@ -25,14 +29,63 @@ body {
     z-index: 10;
 }
 
-.blur {
+.login-box {
     width: 100%;
     height: 100%;
-    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
-    -webkit-filter: blur(10px); /* Chrome, Opera */
-    -moz-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+}
+
+.login-box .login-content {
+    max-width: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.login-box .login-content .avatar {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 20px;
+}
+
+.login-box .login-content .avatar img {
+    width: 75px;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     vertical-align: middle;
+}
+
+.login-box .login-content .error-msg {
+    display: none;
+    font-size: 12px;
+    color: #ff3f15;;
+}
+
+.login-box .login-content input {
+    height: 30px;
+    background-color: rgb(0, 0, 50);
+    color: #ffffff;
+}
+
+/* login-btn*/
+#login-btn {
+    height: 30px;
+}
+
+.reg-box {
+
+}
+
+.reg-box span {
+    display: inline-block;
+    width: 49%;
+
+}
+
+.reg-box span > a {
+    color: #ffffff;
+    font-size: 12px;
 }

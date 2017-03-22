@@ -46,7 +46,8 @@ public class UserController extends Controller {
         session.setMaxInactiveInterval(30);
         session.setAttribute("user", result.getObject(Constant.RESP_RESULT, User.class));
 
-        render("index.html");
+        result.remove(Constant.RESP_RESULT);
+        renderJson(result);
     }
 
     /**
