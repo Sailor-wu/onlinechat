@@ -4,6 +4,7 @@ package cn.succy.chat.service;
 import cn.succy.chat.common.model.User;
 import cn.succy.chat.common.util.Constant;
 import cn.succy.chat.common.util.Constant.RespCode;
+import cn.succy.chat.common.util.Encodor;
 import cn.succy.chat.common.util.EncryptorUtils;
 import cn.succy.chat.common.util.StringUtils;
 import com.alibaba.fastjson.JSONObject;
@@ -78,7 +79,9 @@ public class UserService {
             json.put(Constant.RESP_MSG, "nickName is empty");
             return json;
         }
-
+        // 防止xss注入攻击
+        nickName = Encodor.encodeHtml(nickName);
+        user.setNickname(nickName);
         // 验证密码不为空
         if (StrKit.isBlank(pwd)) {
             json.put(Constant.RESP_CODE, Constant.RespCode.IS_EMPTY);
@@ -101,11 +104,17 @@ public class UserService {
         String countSql = User.dao.getSql("findAllUserCount");
         Record cntRrd = Db.findFirst(countSql);
         int count = cntRrd.getNumber("count").intValue();
-        user.setAid(Constant.BASE_AID + (++count));
+        int acct = Constant.BASE_AID + (++count);
+        user.setAid(acct);
         // 如果手机号码不为空并且格式什么的都正确，密码也不为空
         if (user.save()) {
             json.put(Constant.RESP_CODE, Constant.RespCode.OK);
             json.put(Constant.RESP_MSG, "register success!");
+
+            JSONObject result = new JSONObject();
+            result.put(Constant.USER_ACCT, acct);
+            result.put(Constant.USER_NICKNAME, nickName);
+            json.put(Constant.RESP_RESULT, result);
             return json;
         } else {
             json.put(Constant.RESP_CODE, Constant.RespCode.INSERT_ERROR);

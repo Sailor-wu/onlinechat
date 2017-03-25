@@ -1,6 +1,7 @@
 package cn.succy.chat.interceptor;
 
 import cn.succy.chat.common.model.User;
+import cn.succy.chat.common.util.Constant;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
@@ -22,11 +23,13 @@ public class LoginInterceptor implements Interceptor {
         if (session == null) {
             controller.render("login.html");
         } else {
-            User user = (User) session.getAttribute("user");
-            if (user == null)
+            User user = (User) session.getAttribute(Constant.USER);
+            if (user == null) {
                 controller.render("login.html");
-            else
+            } else {
+                controller.setAttr(Constant.USER, user);
                 controller.render("index.html");
+            }
         }
     }
 }

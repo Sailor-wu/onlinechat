@@ -1,0 +1,101 @@
+/**
+公共css模块
+*/
+
+@charset "UTF-8";
+/**
+ * common color class
+ * */
+
+.defualt-clr,
+.defualt-clr::before {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/*red*/
+.red,
+.red::before {
+    border: 1px solid #FF0000;
+    background-color: #FF6A6A;
+}
+
+/*orange*/
+.orange,
+.orange::before {
+    border: 1px solid #FF8247;
+    background-color: #FFA500;
+}
+
+/*yellow*/
+.yellow,
+.yellow::before {
+    border: 1px solid #FFFF00;
+    background-color: #FFEC8B;
+}
+
+/*green*/
+.green,
+.green::before {
+    border: 1px solid #3A7B0E;
+    background-color: #9EEA6A;
+}
+
+/*blue*/
+.blue,
+.blue::before {
+    border: 1px solid #0000EE;
+    background-color: #00B2EE;
+}
+
+/*purple*/
+.purple,
+.purple::before {
+    border: 1px solid #551A8B;
+    background-color: #AB82FF;
+}
+
+/*pink*/
+.pink,
+.pink::before {
+    border: 1px solid #FFB5C5;
+    background-color: #FFC1C1;
+}
+
+/* bubble */
+.bubble-right,
+.bubble-left {
+    max-width: 500px;
+    position: relative;
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+    padding: 5px;
+    /*border: 1px solid #ccc;
+    background-color: #fff;*/
+    min-height: 12px;
+    min-width: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.bubble-right::before,
+.bubble-left::before {
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    /*border: 1px solid #ccc;
+    background-color: #fff;*/
+    content: '';
+    position: absolute;
+}
+
+.bubble-right::before {
+    right: -5px;
+    border-style: solid solid none none;
+}
+
+.bubble-left::before {
+    left: -5px;
+    border-style: none none solid solid;
+}

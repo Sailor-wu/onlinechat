@@ -43,7 +43,7 @@ public class UserController extends Controller {
         }
         HttpSession session = getSession();
         // 设置半个小时的有效session时间
-        session.setMaxInactiveInterval(30);
+        //session.setMaxInactiveInterval(30);
         session.setAttribute("user", result.getObject(Constant.RESP_RESULT, User.class));
 
         result.remove(Constant.RESP_RESULT);

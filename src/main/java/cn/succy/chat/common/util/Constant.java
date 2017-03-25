@@ -21,6 +21,9 @@ public class Constant {
     public static final String RESP_CODE = "code";
     public static final String RESP_MSG = "msg";
     public static final String RESP_RESULT = "result";
+    public static final String USER_ACCT = "account";
+    public static final String USER_NICKNAME = "nickname";
+    public static final String USER = "user";
 
 
     /**

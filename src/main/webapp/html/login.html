@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../js/skin/default/layer.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
@@ -29,45 +31,52 @@
             </div>
             <div class="form-group reg-box">
                 <span class="text-left"><a id="forgot" href="#">忘记密码？</a></span>
-                <span class="text-right"><a id="register" href="#">注册账号</a></span>
+                <span class="text-right"><a id="register" href="javascript:void(0)">注册账号</a></span>
             </div>
         </div>
     </div>
+    <div id="reg-dlg">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="icon-user"></i>
+                </span>
+                <input type="text" id="nickname" class="form-control" placeholder="请输入昵称">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="icon-mobile-phone icon-large"></i>
+                </span>
+                <input type="text" id="phone" class="form-control" placeholder="请输入11位手机号">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="icon-lock"></i>
+                </span>
+                <input type="password" id="password" class="form-control" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="icon-unlock"></i>
+                </span>
+                <input type="password" id="confirm" class="form-control" placeholder="请再次输入密码">
+            </div>
+        </div>
+        <!--<div class="form-group">-->
+        <!--<button class="btn btn-success btn-block" id="reg-btn" type="button">立即注册</button>-->
+        <!--</div>-->
+    </div>
+
 </div>
 </body>
 <script src="../js/jquery-1.11.1.min.js"></script>
-<script>
-    var bgImgs = ['1.jpg', '2.jpg', '3.jpg'];
-    var index = 1;
-    setInterval(function () {
-        if (index > 2) {
-            index = 0;
-        }
-        var bgImg = bgImgs[index++];
-        var background = "url(../img/" + bgImg + ")";
-        $("body").css({"background-image": background});
-    }, 3000);
-
-    $("#login-btn").on("click", function () {
-        var acct = $("#acct").val().trim();
-        var pwd = $("#pwd").val().trim();
-
-        if (acct == "") {
-            alert("账号不为空");
-            return false;
-        } else if (pwd == "") {
-            alert("密码不能为空");
-            return false;
-        } else {
-            $.post("http://localhost:9090/user/login", {"acct": acct, "pwd": pwd}, function (result) {
-                console.log(result)
-                if (result.code == 200) {
-                    window.location = "http://localhost:9090";
-                } else {
-                    $(".error-msg").show();
-                }
-            }, "json");
-        }
-    })
-</script>
+<!--<script src="../js/bootstrap.min.js"></script>-->
+<script src="../js/layer.js"></script>
+<script src="../js/login.js"></script>
 </html>
